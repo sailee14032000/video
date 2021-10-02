@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<title>VIDEOS</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
+	</head>
+	<body onload="playvideo_one()">
+
+        <div id="videos_options">
+        	
+        	<div id="options">
+        		<button class="buttons" id="b_1" onclick="togglevideo(this)" data-video="2"><img src="png/design.png"> Design</button>
+        		<button class="buttons" id="b_2" onclick="togglevideo(this)" data-video="3">Photography</button>
+			</div>
+        	
+        	<video id="video" data-video-type="1" onpause="showoptions()" onplay="hideoptions()" controls  autoplay="true" muted="true" onpause="">
+				<source id="videosrc" src="https://rr1---sn-cvh7knll.c.drive.google.com/videoplayback?expire=1633167373&ei=ze9XYfXaMf-GrvIPtN6g4AQ&ip=2409:4040:d10:1276:6de5:75bc:4a3d:df9b&cp=QVRIVUJfVlNVRFhPOk1LQUJodm5YSVBQYjd3ekxab0hxbkk0MXRNeV92T2RDTDBNUHNqQk9weE8&id=fcc91234981aa5be&itag=18&source=webdrive&requiressl=yes&mh=4A&mm=32&mn=sn-cvh7knll&ms=su&mv=m&mvi=1&pl=41&ttl=transient&susc=dr&driveid=17CdjSRlK85WRTyFam_wAgPAxgVbeFTkF&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=59.953&lmt=1633151482331742&mt=1633152501&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIgHEEn2nAvwPUh6g3YNgL3DmtVUk8rxyZxkvoPFesDwScCIQDQjkBJwDPlJGG6if8qRCHMmhZeB84P9a_9Ezjy_JO0IA==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhANaf16_Nlj5me6UlfbzC8vBIe1-9p1DsWR9ptgHuwRbwAiAyDKZoS0yG0dfL7xDBoqZUOOeNvRl5gfgqaPYlzwKIXg==&cpn=43ijf-xVexczHrrM&c=WEB_EMBEDDED_PLAYER&cver=1.20210928.1.1" type="video/mp4">
+				Your browser does not support video.
+			</video>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+
+		function playvideo_one(){
+			
+			var v1 = document.getElementById("video");
+			v1.play();
+
+
+		}
+
+		function showoptions(){
+			var opt = document.getElementById("options");
+			var video = document.getElementById("video");
+			var video_type = video.getAttribute("data-video-type");
+			var b1 = document.getElementById("b_1");
+			var b2 = document.getElementById("b_2");
+			video.style.opacity = 0.2;
+			if (video_type==1)
+			{
+				b1.innerHTML = "<img src='png/design.png'>Design";
+				b2.innerHTML = "<img src='png/photography.png'>Photography";
+
+			}
+			if (video_type==2)
+			{
+				b1.innerHTML = "<img src='png/home.png'>Home";
+				b2.innerHTML = "<img src='png/photography.png'>Photography";
+
+			}
+			if (video_type==3)
+			{
+				b1.innerHTML = "<img src='png/home.png'>Home";
+				b2.innerHTML = "<img src='png/design.png'>Design";
+
+			}
+			opt.style.display = "flex";
+
+		}
+		function hideoptions(){
+			var video = document.getElementById("videosrc");
+			var opt = document.getElementById("options");
+			opt.style.display = "none";
+			video.style.opacity = 1;
+
+		}
+
+		function togglevideo(element)
+		{
+			var video = document.getElementById("video");
+			var nextvideo = element.getAttribute("data-video");
+			var b1 = document.getElementById("b_1");
+			var b2 = document.getElementById("b_2");
+			
+			var videosrc = document.getElementById("videosrc");
+			console.log(nextvideo)
+			
+
+
+			video.setAttribute("data-video-type",nextvideo);
+			video.style.opacity = 1;
+			if (nextvideo=="3")
+			{
+				
+				b1.setAttribute("data-video","1");
+				b2.setAttribute("data-video","2");
+
+			}
+			if (nextvideo=="2")
+			{
+				
+				b1.setAttribute("data-video","1");
+				b2.setAttribute("data-video","3");
+			}
+			if (nextvideo=="1")
+			{
+				
+				b1.setAttribute("data-video","2");
+				b2.setAttribute("data-video","3");
+			}
+			if (nextvideo==1){
+				nextvideo = "https://rr1---sn-cvh7knll.c.drive.google.com/videoplayback?expire=1633167373&ei=ze9XYfXaMf-GrvIPtN6g4AQ&ip=2409:4040:d10:1276:6de5:75bc:4a3d:df9b&cp=QVRIVUJfVlNVRFhPOk1LQUJodm5YSVBQYjd3ekxab0hxbkk0MXRNeV92T2RDTDBNUHNqQk9weE8&id=fcc91234981aa5be&itag=18&source=webdrive&requiressl=yes&mh=4A&mm=32&mn=sn-cvh7knll&ms=su&mv=m&mvi=1&pl=41&ttl=transient&susc=dr&driveid=17CdjSRlK85WRTyFam_wAgPAxgVbeFTkF&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=59.953&lmt=1633151482331742&mt=1633152501&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIgHEEn2nAvwPUh6g3YNgL3DmtVUk8rxyZxkvoPFesDwScCIQDQjkBJwDPlJGG6if8qRCHMmhZeB84P9a_9Ezjy_JO0IA==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhANaf16_Nlj5me6UlfbzC8vBIe1-9p1DsWR9ptgHuwRbwAiAyDKZoS0yG0dfL7xDBoqZUOOeNvRl5gfgqaPYlzwKIXg==&cpn=43ijf-xVexczHrrM&c=WEB_EMBEDDED_PLAYER&cver=1.20210928.1.1";
+			}
+			if (nextvideo==2){
+				nextvideo = "https://rr1---sn-cvh7knll.c.drive.google.com/videoplayback?expire=1633167730&ei=MfFXYbrXPMuOrvIP4KKHsAc&ip=2409:4040:d10:1276:6de5:75bc:4a3d:df9b&cp=QVRIVUJfVldRQVhPOk1LQUJscmtYSVBQYjd3ZEhXb0hxbkk0MXhJdl92T2RDTDBRTHBqQk9weE8&id=c4754228609e7d22&itag=18&source=webdrive&requiressl=yes&mh=6h&mm=32&mn=sn-cvh7knll&ms=su&mv=m&mvi=1&pl=41&ttl=transient&susc=dr&driveid=1K9rZX4Tgo1wj7fsCdIxnI8RPl21Cmn5n&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=65.967&lmt=1633151587685878&mt=1633153225&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIgQht7H1R6xnzFYrbTpQ18YptCzZV6cnAV3BJOvWdZ1MICIQDWm5FCwyfAvH7-4y-CnxO_wi72wJSW15_4zMBMRP99iw==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAK2o6PCpjLEjpVix03zjJe23_u732Jtjp_3cM8XXktrDAiEA9Sw9j8sR7VfMx-nXgIsBvLI0Kc8bWGAjCwkzDUC5M7U=&cpn=pJRXO6VlxvM5AYrS&c=WEB_EMBEDDED_PLAYER&cver=1.20210928.1.1";
+			}
+			if (nextvideo==3){
+				nextvideo = "https://rr5---sn-cvh76n7k.c.drive.google.com/videoplayback?expire=1633167765&ei=VfFXYZP5AqiemvUPjO-96A0&ip=2409:4040:d10:1276:6de5:75bc:4a3d:df9b&cp=QVRIVUJfVldURlhPOk1LQUJsdXBYSVBQYjd3ZEtCb0hxbkk0MXhMYV92T2RDTDBRT3VqQk9weE8&id=9c13eeac73baa937&itag=18&source=webdrive&requiressl=yes&mh=VC&mm=32&mn=sn-cvh76n7k&ms=su&mv=m&mvi=5&pl=41&ttl=transient&susc=dr&driveid=1GSOs_M_8STObZAzlkpWDNsWj1FpBnvdP&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=91.463&lmt=1633151686648945&mt=1633152743&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIhAJnje-tilwHQGfFRhNE8Gz5nmFZfTet_9sC9omu5oGK6AiATVISOxyG_ipjTaoyQM2fNKQdswLW0BaQb6WCTpPO0BA==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAI0FI9hWUDQdmKIghfxDET0CO1_SboD8KzzPDzdP_SjiAiEAkwLTl4nl-EMQDhX5abUFwYBK4hE0EMws96urkIcaClE=&cpn=prh525lmH6cFwTMR&c=WEB_EMBEDDED_PLAYER&cver=1.20210928.1.1"
+			}
+
+
+
+			videosrc.setAttribute("src",nextvideo);
+			video.load();
+
+
+			
+			
+			
+
+
+
+
+
+		}
+
+
+	</script>
+</html>
