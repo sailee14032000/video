@@ -38,8 +38,8 @@ body{
 #video{
 	box-shadow:  20px 20px 60px #d7c9c9,
              -20px -20px 60px #ffffff;
-            width: 100vw;
-            height: 20vh;
+            width: 50vw;
+            height: 50vh;
 
 
 }
@@ -62,4 +62,11 @@ body{
 .buttons:hover{
 	font-size: 1.02em;
 	
+}
+@media (max-width: 1024px){
+	#video{
+		width: 98vw;
+		height: 30vh;
+
+	}
 }
